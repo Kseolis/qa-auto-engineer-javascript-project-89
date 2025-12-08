@@ -1,16 +1,70 @@
-# React + Vite
+# Проект автоматизации тестирования React приложения
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект демонстрирует автоматизацию тестирования React приложения с использованием React Testing Library, Vitest и паттерна Page Object Model.
 
-Currently, two official plugins are available:
+## Описание
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Приложение включает в себя:
+- Форму регистрации пользователя с полями: email, пароль, адрес, город, страна, чекбокс принятия правил
+- Интегрированный виджет чат-бота для взаимодействия с пользователем
+- Покрытие тестами с использованием Page Object Model
 
-## React Compiler
+## Структура проекта
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+.
+├── __fixtures__/          # Фикстуры для тестов
+│   └── steps.js          # Шаги для чат-бота
+├── __tests__/            # Тесты
+│   ├── pages/            # Page Objects
+│   │   ├── ChatbotPage.js
+│   │   └── RegistrationFormPage.js
+│   ├── utils/            # Утилиты для тестов
+│   │   └── testHelpers.js
+│   └── main.test.jsx    # Основные тесты
+├── src/                  # Исходный код приложения
+│   ├── App.jsx           # Главный компонент
+│   └── main.jsx          # Точка входа
+└── package.json
+```
 
-## Expanding the ESLint configuration
+## Технологии
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Vitest** — фреймворк для тестирования
+- **React Testing Library** — утилиты для тестирования React компонентов
+- **@hexlet/chatbot-v2** — виджет чат-бота
+
+## Установка
+
+```bash
+npm install
+```
+
+## Запуск
+
+### Запуск приложения в режиме разработки
+
+```bash
+npm run dev
+```
+
+### Запуск тестов
+
+```bash
+npm test
+```
+
+### Линтинг
+
+```bash
+npm run lint
+```
+
+## Покрытие тестами
+
+Проект включает тесты для:
+- Запуска и работы чат-бота
+- Работы формы регистрации (заполнение, отправка, проверка результатов)
+- Совместной работы виджета и формы
+- Полного цикла навигации по чат-боту
+- Крайних случаев (повторные клики, быстрые переходы, множественное открытие/закрытие)
