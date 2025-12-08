@@ -97,7 +97,7 @@ const App = () => {
         <label htmlFor="address" className="col-form-label">
           Адрес
         </label>
-        <textarea>
+        <textarea
           type="text"
           name="address"
           value={form.address}
@@ -105,7 +105,7 @@ const App = () => {
           className="form-control"
           id="address"
           placeholder="Невский проспект, 12"
-        </>
+        />
       </div>
       <div className="col-md-6 mb-3">
         <label htmlFor="city" className="col-form-label">
@@ -141,7 +141,7 @@ const App = () => {
       <div className="col-md-6 mb-3">
         <div className="form-check">
           <label className="form-check-label" htmlFor="rules">
-            <input>
+            <input
               autoComplete="on"
               id="rules"
               name="acceptRules"
@@ -149,7 +149,7 @@ const App = () => {
               onChange={handleChangeField}
               type="checkbox"
               checked={form.acceptRules}
-            </>
+/>
             Принять правила
           </label>
         </div>
