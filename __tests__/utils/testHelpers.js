@@ -8,5 +8,5 @@ export const defaultFormData = {
   address: 'Невский проспект, 12',
   city: 'Санкт-Петербург',
   country: 'Россия',
-  acceptRules: true
+  acceptRules: true,
 }

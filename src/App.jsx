@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Widget from '@hexlet/chatbot-v2'
 import steps from '../__fixtures__/steps'
 
@@ -9,7 +9,7 @@ const App = () => {
     city: '',
     country: '',
     address: '',
-    acceptRules: false
+    acceptRules: false,
   })
   const [submittingState, setSubmittingState] = useState('fillingForm')
 
@@ -33,10 +33,10 @@ const App = () => {
     city: 'Город',
     country: 'Страна',
     address: 'Адрес',
-    acceptRules: 'Принять правила'
+    acceptRules: 'Принять правила',
   }
 
-  const renderRow = (key) => (
+  const renderRow = key => (
     <tr key={key}>
       <td>{enToRus[key]}</td>
       <td>{form[key].toString()}</td>
@@ -44,7 +44,7 @@ const App = () => {
   )
 
   const renderResult = () => {
-    const keys = Object.keys(form).sort((a, b) => a.localeCompare(b));
+    const keys = Object.keys(form).sort((a, b) => a.localeCompare(b))
     return (
       <div className="m-3">
         <button
@@ -149,7 +149,7 @@ const App = () => {
               onChange={handleChangeField}
               type="checkbox"
               checked={form.acceptRules}
-/>
+            />
             Принять правила
           </label>
         </div>

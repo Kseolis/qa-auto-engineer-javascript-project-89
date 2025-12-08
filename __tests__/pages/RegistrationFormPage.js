@@ -3,39 +3,39 @@ export class RegistrationFormPage {
     this.screen = screen
     this.user = user
   }
-  
+
   getEmailInput() {
     return this.screen.getByLabelText('Email')
   }
-  
+
   getPasswordInput() {
     return this.screen.getByLabelText('Пароль')
   }
-  
+
   getAddressInput() {
     return this.screen.getByLabelText('Адрес')
   }
-  
+
   getCityInput() {
     return this.screen.getByLabelText('Город')
   }
-  
+
   getCountrySelect() {
     return this.screen.getByLabelText('Страна')
   }
-  
+
   getRulesCheckbox() {
     return this.screen.getByLabelText('Принять правила')
   }
-  
+
   getSubmitButton() {
-    return this.screen.getByRole('button', {name: 'Зарегистрироваться'})
+    return this.screen.getByRole('button', { name: 'Зарегистрироваться' })
   }
-  
+
   getBackButton() {
-    return this.screen.getByRole('button', {name: 'Назад'})
+    return this.screen.getByRole('button', { name: 'Назад' })
   }
-  
+
   async fillForm(formData) {
     const {
       email = '',
@@ -43,9 +43,9 @@ export class RegistrationFormPage {
       address = '',
       city = '',
       country = '',
-      acceptRules = false
+      acceptRules = false,
     } = formData
-    
+
     if (email) {
       await this.user.type(this.getEmailInput(), email)
     }
@@ -65,36 +65,36 @@ export class RegistrationFormPage {
       await this.user.click(this.getRulesCheckbox())
     }
   }
-  
+
   async submitForm() {
     await this.user.click(this.getSubmitButton())
   }
-  
+
   async goBack() {
     await this.user.click(this.getBackButton())
   }
-  
+
   async fillAndSubmitForm(formData) {
     await this.fillForm(formData)
     await this.submitForm()
   }
-  
+
   isFormVisible() {
-    return this.screen.queryByRole('button', {name: 'Зарегистрироваться'}) !== null
+    return this.screen.queryByRole('button', { name: 'Зарегистрироваться' }) !== null
   }
-  
+
   isResultVisible() {
-    return this.screen.queryByRole('button', {name: 'Назад'}) !== null
+    return this.screen.queryByRole('button', { name: 'Назад' }) !== null
   }
-  
+
   hasFormField(label) {
     return this.screen.queryByLabelText(label) !== null
   }
-  
+
   hasResultField(label) {
     return this.screen.queryByText(label) !== null
   }
-  
+
   hasResultValue(value) {
     return this.screen.queryByText(value) !== null
   }
